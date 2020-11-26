@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/skin.material" type="Material" id=1]
+[ext_resource path="res://Assets/blasterH.glb" type="PackedScene" id=2]
 [ext_resource path="res://Assets/cyborgFemaleA.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -4637,7 +4638,7 @@ animation = "Idle"
 animation = "Run"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -151.35, 65.4075 )
+graph_offset = Vector2( 138.105, 87.7688 )
 nodes/Idle/node = SubResource( 19 )
 nodes/Idle/position = Vector2( 130, 70 )
 nodes/Idle_Run/node = SubResource( 20 )
@@ -4835,7 +4836,7 @@ bones/35/name = "right_hand_thumb_1"
 bones/35/parent = 31
 bones/35/rest = Transform( -0.554881, -0.654406, -0.513673, -0.0427129, 0.639042, -0.767985, 0.830832, -0.4042, -0.382544, -0.063919, 0.0509812, -0.0128302 )
 bones/35/enabled = true
-bones/35/bound_children = [  ]
+bones/35/bound_children = [ NodePath("BoneAttachment") ]
 bones/36/name = "right_hand_thumb_2"
 bones/36/parent = 35
 bones/36/rest = Transform( 0.660497, -0.565645, -0.49375, 0.514051, -0.138638, 0.846481, -0.54726, -0.812912, 0.199201, 9.52321e-08, 0.105868, 2.92955e-08 )
@@ -4886,6 +4887,13 @@ bones/44/bound_children = [  ]
 mesh = SubResource( 2 )
 skin = SubResource( 3 )
 material/0 = SubResource( 4 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Root/Skeleton"]
+transform = Transform( -0.855543, 0.113879, 0.505063, 0.410036, -0.446575, 0.795266, 0.316109, 0.887468, 0.335369, -0.657163, 1.30877, 0.276842 )
+bone_name = "right_hand_thumb_1"
+
+[node name="blasterH" parent="Root/Skeleton/BoneAttachment" instance=ExtResource( 2 )]
+transform = Transform( -0.782599, 0.619815, -0.0579748, 0.198672, 0.336941, 0.920332, 0.589965, 0.70873, -0.38683, -0.134073, 0.536054, -0.0112103 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 5 )
